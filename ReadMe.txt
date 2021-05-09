@@ -1,0 +1,1 @@
+place comb_01.pdqt and the python program in the same folder
