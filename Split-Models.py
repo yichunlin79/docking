@@ -25,3 +25,12 @@ for row in data_rows:
             temp_data.append(row)
     else:
         temp_data.append(row)
+        
+#last model        
+if len(temp_data) != 0:
+    file_path = current_model+".txt"
+    file_path = file_path.strip()
+    file_path = file_path.replace("\n", " ")
+    f_out = open(file_path, "w")
+    f_out.writelines(temp_data)
+    f_out.close()
