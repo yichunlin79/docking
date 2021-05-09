@@ -8,9 +8,10 @@ for row in data_rows:
        
     temp_data.append(row)
     if row.find('MODEL') == 0:  
-        current_model = row
+        
         #if model is not the same as last one
         if row != current_model:
+            current_model = row
             #only create new files when data is not empty
             if len(temp_data) != 0:
                 file_path = current_model+".pdbqt"   #create .pdbqt file
