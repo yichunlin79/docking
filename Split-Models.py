@@ -5,25 +5,23 @@ current_model = ""
 data_rows = f_in.readlines()
 
 for row in data_rows:
-       
-    temp_data.append(row)
-    if row.find('MODEL') == 0:  
-        
-        #if model is not the same as last one
+    
+    if row.find('MODEL') == 0:              
+        #if model is not the same as last process
         if row != current_model:
-            current_model = row
-            #only create new files when data is not empty
             if len(temp_data) != 0:
-                file_path = current_model+".pdbqt"   #create .pdbqt file
-                file_path = file_path.strip()        #remove space charactors
-                file_path = file_path.replace("\n", " ")  #remove newline 
-                temp_data.pop()   #pop the last row  --> model
+                file_path = current_model+".txt"
+                file_path = file_path.strip()
+                file_path = file_path.replace("\n", " ")
                 f_out = open(file_path, "w")
                 f_out.writelines(temp_data)
                 f_out.close()
-                temp_data.clear()
-                temp_data.append(current_model) #store model
-            
+                temp_data.clear()               
+            current_model = row
+            temp_data.append(row)
         #if model is the same as last one
         else:
-            print("Model duplicated: "+row) #show which model is duplicated
+            print("model duplicated!"+row)
+            temp_data.append(row)
+    else:
+        temp_data.append(row)
