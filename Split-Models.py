@@ -9,7 +9,7 @@ for row in data_rows:
     if row.find('MODEL') == 0:              
         #if model is not the same as last process
         if row != current_model:
-            if len(temp_data) != 0:
+            if len(temp_data) > 1:
                 file_path = current_model+".txt"
                 file_path = file_path.strip()
                 file_path = file_path.replace("\n", " ")
